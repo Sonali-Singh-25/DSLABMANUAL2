@@ -1,31 +1,31 @@
 //question 18
-class Node {
+class DLLNode {
     int data;
-    Node prev, next;
-    Node(int data) {
+    DLLNode prev, next;
+    DLLNode(int data) {
         this.data = data;
         this.prev = null;
         this.next = null;
     }
 }
 
- class DoublyLinkedList {
-    static Node head = null;
+ class q18 {
+    static DLLNode head = null;
 
     public static void insertEnd(int data) {
-        Node newNode = new Node(data);
+        DLLNode newNode = new DLLNode(data);
         if (head == null) {
             head = newNode;
             return;
         }
-        Node temp = head;
+        DLLNode temp = head;
         while (temp.next != null) temp = temp.next;
         temp.next = newNode;
         newNode.prev = temp;
     }
 
     public static void display() {
-        Node temp = head;
+        DLLNode temp = head;
         while (temp != null) {
             System.out.print(temp.data + " <-> ");
             temp = temp.next;

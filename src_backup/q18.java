@@ -1,44 +1,43 @@
-//question 19
+//question 18
 class Node {
     int data;
-    Node next;
+    Node prev, next;
     Node(int data) {
         this.data = data;
+        this.prev = null;
         this.next = null;
     }
 }
 
- class q19 {
+ class q18 {
     static Node head = null;
 
-    public static void insert(int data) {
+    public static void insertEnd(int data) {
         Node newNode = new Node(data);
         if (head == null) {
             head = newNode;
-            head.next = head;
             return;
         }
         Node temp = head;
-        while (temp.next != head) temp = temp.next;
+        while (temp.next != null) temp = temp.next;
         temp.next = newNode;
-        newNode.next = head;
+        newNode.prev = temp;
     }
 
     public static void display() {
-        if (head == null) return;
         Node temp = head;
-        do {
-            System.out.print(temp.data + " -> ");
+        while (temp != null) {
+            System.out.print(temp.data + " <-> ");
             temp = temp.next;
-        } while (temp != head);
-        System.out.println("(head)");
+        }
+        System.out.println("NULL");
     }
 
     public static void main(String[] args) {
         System.out.println("Sonali Singh 24SCSE1010245");
-        insert(10);
-        insert(20);
-        insert(30);
+        insertEnd(10);
+        insertEnd(20);
+        insertEnd(30);
         display();
     }
 }

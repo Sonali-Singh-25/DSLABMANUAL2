@@ -1,53 +1,49 @@
-// q23.java
-class TreeNode {
+//question 23
+class Node {
     int data;
-    TreeNode left, right;
-
-    TreeNode(int value) {
+    Node left, right;
+    Node(int value) {
         data = value;
         left = right = null;
     }
 }
 
-public class q23 {
+ class BST {
 
-    public static TreeNode insert(TreeNode root, int value) {
-        if (root == null) return new TreeNode(value);
+    public static Node insert(Node root, int value) {
+        if (root == null) return new Node(value);
         if (value < root.data) root.left = insert(root.left, value);
         else if (value > root.data) root.right = insert(root.right, value);
         return root;
     }
 
-    public static TreeNode search(TreeNode root, int key) {
+    public static Node search(Node root, int key) {
         if (root == null || root.data == key) return root;
         if (key < root.data) return search(root.left, key);
         else return search(root.right, key);
     }
 
-    public static TreeNode minValueNode(TreeNode node) {
-        TreeNode current = node;
+    public static Node minValueNode(Node node) {
+        Node current = node;
         while (current != null && current.left != null) current = current.left;
         return current;
     }
 
-    public static TreeNode deleteNode(TreeNode root, int key) {
+    public static Node deleteNode(Node root, int key) {
         if (root == null) return root;
         if (key < root.data) root.left = deleteNode(root.left, key);
         else if (key > root.data) root.right = deleteNode(root.right, key);
         else {
-            // node with only one child or no child
             if (root.left == null) return root.right;
             else if (root.right == null) return root.left;
-
-            // node with two children: get the inorder successor (smallest in the right subtree)
-            TreeNode temp = minValueNode(root.right);
+            Node temp = minValueNode(root.right);
             root.data = temp.data;
             root.right = deleteNode(root.right, temp.data);
         }
         return root;
     }
 
-    public static void inorder(TreeNode root) {
+    public static void inorder(Node root) {
         if (root != null) {
             inorder(root.left);
             System.out.print(root.data + " ");
@@ -57,7 +53,7 @@ public class q23 {
 
     public static void main(String[] args) {
         System.out.println("Sonali Singh 24SCSE1010245");
-        TreeNode root = null;
+        Node root = null;
         root = insert(root, 50);
         insert(root, 30);
         insert(root, 20);
@@ -68,16 +64,13 @@ public class q23 {
 
         System.out.print("Inorder traversal: ");
         inorder(root);
-        System.out.println();
 
-        System.out.println("Deleting 20");
+        System.out.println("\nDeleting 20");
         root = deleteNode(root, 20);
-        System.out.print("After deletion inorder traversal: ");
         inorder(root);
-        System.out.println();
 
-        System.out.print("Searching 40: ");
-        TreeNode found = search(root, 40);
+        System.out.print("\nSearching 40: ");
+        Node found = search(root, 40);
         if (found != null) System.out.println("Found");
         else System.out.println("Not Found");
     }

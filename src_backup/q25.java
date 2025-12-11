@@ -1,7 +1,7 @@
 //question 25
 import java.util.Scanner;
 
- class q25 {
+ class DFSGraph {
     static final int MAX = 100;
     static int[][] adj = new int[MAX][MAX];
     static boolean[] visited = new boolean[MAX];

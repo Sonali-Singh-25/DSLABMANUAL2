@@ -1,16 +1,16 @@
-// q22.java
-class TreeNode {
+//question 22
+class Node {
     int data;
-    TreeNode left, right;
-    TreeNode(int value) {
+    Node left, right;
+    Node(int value) {
         data = value;
         left = right = null;
     }
 }
 
-class q22 {
+ class q22 {
 
-    public static void preorder(TreeNode root) {
+    public static void preorder(Node root) {
         if (root != null) {
             System.out.print(root.data + " ");
             preorder(root.left);
@@ -18,7 +18,7 @@ class q22 {
         }
     }
 
-    public static void inorder(TreeNode root) {
+    public static void inorder(Node root) {
         if (root != null) {
             inorder(root.left);
             System.out.print(root.data + " ");
@@ -26,7 +26,7 @@ class q22 {
         }
     }
 
-    public static void postorder(TreeNode root) {
+    public static void postorder(Node root) {
         if (root != null) {
             postorder(root.left);
             postorder(root.right);
@@ -36,11 +36,11 @@ class q22 {
 
     public static void main(String[] args) {
         System.out.println("Sonali Singh 24SCSE1010245");
-        TreeNode root = new TreeNode(1);
-        root.left = new TreeNode(2);
-        root.right = new TreeNode(3);
-        root.left.left = new TreeNode(4);
-        root.left.right = new TreeNode(5);
+        Node root = new Node(1);
+        root.left = new Node(2);
+        root.right = new Node(3);
+        root.left.left = new Node(4);
+        root.left.right = new Node(5);
 
         System.out.print("Preorder: ");
         preorder(root);
@@ -51,3 +51,4 @@ class q22 {
         System.out.println();
     }
 }
+

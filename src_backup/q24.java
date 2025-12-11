@@ -3,7 +3,7 @@ import java.util.Scanner;
 import java.util.LinkedList;
 import java.util.Queue;
 
- class q24 {
+ class GraphBFS {
     static int MAX = 100;
     static int[][] adj = new int[MAX][MAX];
     static boolean[] visited = new boolean[MAX];
